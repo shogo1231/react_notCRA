@@ -48,6 +48,8 @@ module.exports = {
       directory: path.join(__dirname, 'dist'),
     },
     port: 4000,
+    host: '133.130.91.178',
+    disableHostCheck: true,
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
