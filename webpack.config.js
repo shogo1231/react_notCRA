@@ -2,10 +2,12 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
+  // mode: 'production',
   entry: './src/index.tsx',
   output: {
     // path: path.join(`${__dirname}/`),
-    path: path.join(__dirname + '/test', 'dist'),
+    path: path.join(__dirname, 'dist'),
+    publicPath: '/training',
     filename: 'bundle.js',
   },
   module: {
@@ -46,10 +48,17 @@ module.exports = {
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
+      publicPath: '/training',
     },
     port: 4000,
     host: '133.130.91.178',
-    disableHostCheck: true,
+    allowedHosts: ['gosho-techplay.com'],
+    client: {
+      webSocketURL: 'wss://0.0.0.0/ws',
+      //reconnect: false,
+      webSocketTransport: 'ws',
+      progress: true,
+    },
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
