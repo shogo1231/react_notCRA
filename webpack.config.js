@@ -4,8 +4,8 @@ module.exports = {
   mode: 'development',
   entry: './src/index.tsx',
   output: {
-    // path: path.join(`${__dirname}/`),
-    path: path.join(__dirname + '/test', 'dist'),
+    path: path.join(__dirname, 'dist'),
+    publicPath: '/',
     filename: 'bundle.js',
   },
   module: {
@@ -46,7 +46,11 @@ module.exports = {
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
+      publicPath: '/',
     },
+    // react-router-domで画面遷移する際の404エラー対策
+    // この設定について詳細確認が必要
+    historyApiFallback: true,
     port: 3000,
   },
   resolve: {

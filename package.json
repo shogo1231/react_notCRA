@@ -5,16 +5,23 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "dev": "webpack serve --open"
+    "dev": "webpack serve --watch",
+    "start": "webpack serve --open",
+    "start:dev": "pm2 start pm2.config.js --only development",
+    "heroku-postbuild": "npm run build",
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development --watch"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "@types/react-router-dom": "^5.3.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.9.0",
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
