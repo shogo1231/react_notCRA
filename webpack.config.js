@@ -59,6 +59,9 @@ module.exports = {
       webSocketTransport: 'ws',
       progress: true,
     },
+    // react-router-domで画面遷移する際の404エラー対策
+    // この設定について詳細確認が必要
+    historyApiFallback: true,
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
