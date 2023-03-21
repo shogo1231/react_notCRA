@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './index.css';
 import  Router from "./router/Router";
 
 const root = ReactDOM.createRoot(
@@ -8,6 +9,5 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Router />
-    <div>Hello World!</div>
   </React.StrictMode>
 );

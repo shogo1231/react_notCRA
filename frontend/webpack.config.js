@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.join(__dirname, 'dist'),
-    publicPath: '/',
+    publicPath: '/training',
     filename: 'bundle.js',
   },
   module: {
@@ -28,7 +28,7 @@ module.exports = {
       },
       /* CSSのモジュール */
       {
-        test: /\.scss$/,
+        test: /\.(css|scss)$/,
         use: [
           {
             loader: 'style-loader',
@@ -52,6 +52,12 @@ module.exports = {
     // この設定について詳細確認が必要
     historyApiFallback: true,
     port: 3000,
+    // 「/api」を別サーバーへ転送する設定
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8001'
+      }
+    },
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
